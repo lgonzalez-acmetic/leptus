@@ -24,7 +24,7 @@ export class RegisterPageComponent implements OnInit {
 
   onSubmit(): void {
     const { name, email, password } = this.form;
-
+    document.body.style.cursor = 'progress';
     console.log(this.form);
 
     this.authService.register(name, email, password).subscribe(
@@ -32,10 +32,13 @@ export class RegisterPageComponent implements OnInit {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        document.body.style.cursor = 'auto';
+
       },
       err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
+        document.body.style.cursor = 'help';
       }
     );
   }
