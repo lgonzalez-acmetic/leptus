@@ -20,7 +20,7 @@ const routes: Routes = [
     // canLoad: [AuthGuard]
   },
   {
-    path: 'register',
+    path: 'registrar',
     loadChildren: () =>
       import('./pages/register-page/register-page.module').then(
         (m) => m.RegisterPageModule
