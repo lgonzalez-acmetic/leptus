@@ -11,11 +11,11 @@ export class LoginPageComponent implements OnInit {
     email: '',
     password: ''
   }
+
   constructor(private authService: AuthService) { }
 
-
   ngOnInit(): void {
-    this.authService.add("prueba");
+    this.authService.getUsers();
   }
 
   login(){
