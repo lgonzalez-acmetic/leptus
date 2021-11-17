@@ -11,14 +11,22 @@ const routes: Routes = [
       ),
     // canLoad: [AuthGuard]
   },
-  // {
-  //   path: '',
-  //   loadChildren: () =>
-  //     import('./pages/home-page/home-page.module').then(
-  //       (m) => m.HomePageModule
-  //     ),
-  //   // canLoad: [AuthGuard]
-  // },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('./pages/home-page/home-page.module').then(
+        (m) => m.HomePageModule
+      ),
+    // canLoad: [AuthGuard]
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register-page/register-page.module').then(
+        (m) => m.RegisterPageModule
+      ),
+    // canLoad: [AuthGuard]
+  },
   { path: '**', redirectTo: 'iniciar-sesion', pathMatch: 'full' },
 ];
 
