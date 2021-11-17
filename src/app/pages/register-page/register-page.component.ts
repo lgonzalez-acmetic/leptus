@@ -27,17 +27,17 @@ export class RegisterPageComponent implements OnInit {
 
     console.log(this.form);
 
-    // this.authService.register(username, email, password).subscribe(
-    //   data => {
-    //     console.log(data);
-    //     this.isSuccessful = true;
-    //     this.isSignUpFailed = false;
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isSignUpFailed = true;
-    //   }
-    // );
+    this.authService.register(name, email, password).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
 
 }
