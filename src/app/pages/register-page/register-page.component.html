@@ -11,11 +11,25 @@
             <div class="card-header"><h4>Registrar</h4></div>
 
             <div class="card-body">
-              <form method="POST">
+              <form
+                  *ngIf="!isSuccessful"
+                  name="form"
+                  (ngSubmit)="f.form.valid && onSubmit()"
+                  #f="ngForm"
+                  novalidate
+                >
                 <div class="row">
                   <div class="form-group col-6">
-                    <label for="first_name">Nombres</label>
-                    <input id="first_name" type="text" class="form-control" name="first_name" autofocus>
+                    <label for="name">Nombres</label>
+                    <input
+                      id="name"
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      autofocus
+                      [(ngModel)]="form.name"
+                      #name="ngModel"
+                    >
                   </div>
                   <div class="form-group col-6">
                     <label for="last_name">Apellidos</label>
@@ -25,7 +39,14 @@
 
                 <div class="form-group">
                   <label for="email">Email</label>
-                  <input id="email" type="email" class="form-control" name="email">
+                  <input
+                    id="email"
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    [(ngModel)]="form.email"
+                    #email="ngModel"
+                  >
                   <div class="invalid-feedback">
                   </div>
                 </div>
@@ -33,7 +54,16 @@
                 <div class="row">
                   <div class="form-group col-6">
                     <label for="password" class="d-block">Contraseña</label>
-                    <input id="password" type="password" class="form-control pwstrength" data-indicator="pwindicator" name="password">
+                    <input
+                      id="password"
+                      type="password"
+                      class="form-control pwstrength"
+                      data-indicator="pwindicator"
+                      name="password"
+                      [(ngModel)]="form.password"
+                      minlength="6"
+                      #password="ngModel"
+                    >
                     <div id="pwindicator" class="pwindicator">
                       <div class="bar"></div>
                       <div class="label"></div>
@@ -41,7 +71,13 @@
                   </div>
                   <div class="form-group col-6">
                     <label for="password2" class="d-block">Contraseña Confirmacion</label>
-                    <input id="password2" type="password" class="form-control" name="password-confirm">
+                    <input
+                      id="password2"
+                      type="password"
+                      class="form-control"
+                      name="password-confirm"
+                      minlength="6"
+                    >
                   </div>
                 </div>
 
@@ -51,6 +87,9 @@
                   </button>
                 </div>
               </form>
+              <div class="alert alert-success" *ngIf="isSuccessful">
+                Your registration is successful!
+              </div>
             </div>
           </div>
           <div class="simple-footer">
