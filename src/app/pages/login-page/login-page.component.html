@@ -14,7 +14,7 @@
                 <form method="POST" action="#" class="needs-validation" novalidate="">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
+                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus [(ngModel)]="usuario.email">
                     <div class="invalid-feedback">
                       Completar con su email
                     </div>
@@ -24,19 +24,19 @@
                     <div class="d-block">
                     	<label for="password" class="control-label">Contraseña</label>
                       <div class="float-right">
-                        <a href="auth-forgot-password.html" class="text-small">
+                        <a href="#" class="text-small">
                           Olvidó Contraseña?
                         </a>
                       </div>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required>
+                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required [(ngModel)]="usuario.password">
                     <div class="invalid-feedback">
                       Completar Contraseña
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" (click)="login()">
                       Iniciar Sesion
                     </button>
                   </div>
