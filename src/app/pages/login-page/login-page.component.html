@@ -11,10 +11,26 @@
               <div class="card-header"><h4>Login</h4></div>
 
               <div class="card-body">
-                <form method="POST" action="#" class="needs-validation" novalidate="">
+                <form
+                  class="needs-validation"
+                  novalidate=""
+                  *ngIf="!isLoggedIn"
+                  name="form"
+                  (ngSubmit)="f.form.valid && onSubmit()"
+                  #f="ngForm"
+                  novalidate
+                >
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus [(ngModel)]="usuario.email">
+                    <input
+                      id="email"
+                      type="email"
+                      class="form-control"
+                      name="username"
+                      [(ngModel)]="form.username"
+                      required
+                      #username="ngModel"
+                    >
                     <div class="invalid-feedback">
                       Completar con su email
                     </div>
@@ -29,14 +45,23 @@
                         </a>
                       </div>
                     </div>
-                    <input id="password" type="password" class="form-control" name="password" tabindex="2" required [(ngModel)]="usuario.password">
+                    <input
+                      id="password"
+                      type="password"
+                      class="form-control"
+                      name="password"
+                      [(ngModel)]="form.password"
+                      required
+                      minlength="6"
+                      #password="ngModel"
+                    >
                     <div class="invalid-feedback">
                       Completar Contraseña
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4" (click)="login()">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       Iniciar Sesion
                     </button>
                   </div>
