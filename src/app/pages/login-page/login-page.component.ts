@@ -21,10 +21,10 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.getUsers();
-    // if (this.tokenStorage.getToken()) {
-    //   this.isLoggedIn = true;
-    //   this.roles = this.tokenStorage.getUser().roles;
-    // }
+    if (this.tokenStorage.getToken()) {
+      this.isLoggedIn = true;
+      // this.roles = this.tokenStorage.getUser().roles;
+    }
   }
   onSubmit(): void {
     const { email, password } = this.form;
