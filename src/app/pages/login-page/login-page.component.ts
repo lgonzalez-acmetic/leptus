@@ -22,10 +22,11 @@ export class LoginPageComponent implements OnInit {
     this.authService.getUsers();
   }
   onSubmit(): void {
-    const { username, password } = this.form;
+    const { email, password } = this.form;
+    document.body.style.cursor = 'progress';
     console.log(this.form);
 
-    // this.authService.login(username, password).subscribe(
+    // this.authService.login(email, password).subscribe(
     //   data => {
     //     this.tokenStorage.saveToken(data.accessToken);
     //     this.tokenStorage.saveUser(data);
@@ -33,6 +34,8 @@ export class LoginPageComponent implements OnInit {
     //     this.isLoginFailed = false;
     //     this.isLoggedIn = true;
     //     this.roles = this.tokenStorage.getUser().roles;
+    //     document.body.style.cursor = 'auto';
+
     //     this.reloadPage();
     //   },
     //   err => {
