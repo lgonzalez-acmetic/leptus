@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const TOKEN_KEY = 'auth-token';
+const TOKEN_TYPE = 'auth-type';
 const USER_KEY = 'auth-user';
 
 @Injectable({
@@ -14,9 +15,12 @@ export class TokenStorageService {
     window.sessionStorage.clear();
   }
 
-  public saveToken(token: string): void {
+  public saveToken(token: string, token_type: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
+
+    window.sessionStorage.removeItem(TOKEN_TYPE);
+    window.sessionStorage.setItem(TOKEN_TYPE, token_type);
   }
 
   public getToken(): string | null {
@@ -35,6 +39,11 @@ export class TokenStorageService {
     }
 
     return {};
+  }
+
+  public getUserLogged(): any {
+    const token = this.getToken();
+    // Aquí iría el endpoint para devolver el usuario para un token
   }
 
 }

@@ -33,8 +33,8 @@ export class LoginPageComponent implements OnInit {
 
     this.authService.login(email, password).subscribe(
       data => {
-        this.tokenStorage.saveToken(data.access_token);
-        this.tokenStorage.saveUser(data);
+        this.tokenStorage.saveToken(data.access_token, data.token_type);
+        this.tokenStorage.saveUser(data.user);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
