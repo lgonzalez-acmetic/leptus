@@ -8,7 +8,7 @@ import { AuthService } from 'src/app/_services/auth.service';
 })
 export class LoginPageComponent implements OnInit {
   form: any = {
-    username: null,
+    email: null,
     password: null
   };
   isLoggedIn = false;
@@ -26,23 +26,24 @@ export class LoginPageComponent implements OnInit {
     document.body.style.cursor = 'progress';
     console.log(this.form);
 
-    // this.authService.login(email, password).subscribe(
-    //   data => {
-    //     this.tokenStorage.saveToken(data.accessToken);
-    //     this.tokenStorage.saveUser(data);
+    this.authService.login(email, password).subscribe(
+      data => {
+        // this.tokenStorage.saveToken(data.accessToken);
+        // this.tokenStorage.saveUser(data);
 
-    //     this.isLoginFailed = false;
-    //     this.isLoggedIn = true;
-    //     this.roles = this.tokenStorage.getUser().roles;
-    //     document.body.style.cursor = 'auto';
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        // this.roles = this.tokenStorage.getUser().roles;
+        document.body.style.cursor = 'auto';
 
-    //     this.reloadPage();
-    //   },
-    //   err => {
-    //     this.errorMessage = err.error.message;
-    //     this.isLoginFailed = true;
-    //   }
-    // );
+        this.reloadPage();
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+        document.body.style.cursor = 'help';
+      }
+    );
   }
 
   reloadPage(): void {
