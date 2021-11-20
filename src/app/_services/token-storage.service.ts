@@ -9,7 +9,9 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
 
-  constructor() { }
+
+
+  constructor() {  }
 
   signOut(): void {
     window.sessionStorage.clear();
@@ -44,6 +46,25 @@ export class TokenStorageService {
   public getUserLogged(): any {
     const token = this.getToken();
     // Aquí iría el endpoint para devolver el usuario para un token
+  }
+
+  estaAutenticado(): boolean{
+
+    if ( this.getToken() == null ) {
+      return false;
+    }else{
+      return true;
+    }
+
+    // const expira = Number(localStorage.getItem('expira'));
+    // const expiraDate = new Date();
+    // expiraDate.setTime(expira);
+
+    // if ( expiraDate > new Date() ) {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
   }
 
 }

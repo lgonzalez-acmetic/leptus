@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { AuthGuard } from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
-    // canLoad: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'home',
@@ -17,7 +17,7 @@ const routes: Routes = [
       import('./pages/home-page/home-page.module').then(
         (m) => m.HomePageModule
       ),
-    // canLoad: [AuthGuard]
+      canActivate: [AuthGuard]
   },
   {
     path: 'registrar',
@@ -25,7 +25,7 @@ const routes: Routes = [
       import('./pages/register-page/register-page.module').then(
         (m) => m.RegisterPageModule
       ),
-    // canLoad: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   { path: '**', redirectTo: 'iniciar-sesion', pathMatch: 'full' },
 ];
