@@ -24,8 +24,9 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUsers();
     if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
-      // this.roles = this.tokenStorage.getUser().roles;
+      // this.isLoggedIn = true;
+        this.router.navigateByUrl('/home');
+        // this.roles = this.tokenStorage.getUser().roles;
     }
   }
   onSubmit(): void {
@@ -38,15 +39,15 @@ export class LoginPageComponent implements OnInit {
         this.tokenStorage.saveToken(data.access_token, data.token_type);
         this.tokenStorage.saveUser(data.user);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
+        // this.isLoginFailed = false;
+        // this.isLoggedIn = true;
         // this.roles = this.tokenStorage.getUser().roles;
         document.body.style.cursor = 'auto';
         this.router.navigateByUrl('/home');
       },
       err => {
         this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
+        // this.isLoginFailed = true;
         document.body.style.cursor = 'help';
       }
     );
