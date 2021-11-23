@@ -4,6 +4,14 @@ import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
+    path: '',
+    loadChildren: () =>
+      import('./pages/landing-page/landing-page.module').then(
+        (m) => m.LandingPageModule
+      ),
+    // canActivate: [AuthGuard]
+  },
+  {
     path: 'iniciar-sesion',
     loadChildren: () =>
       import('./pages/login-page/login-page.module').then(
@@ -27,7 +35,7 @@ const routes: Routes = [
       ),
     // canActivate: [AuthGuard]
   },
-  { path: '**', redirectTo: 'iniciar-sesion', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
