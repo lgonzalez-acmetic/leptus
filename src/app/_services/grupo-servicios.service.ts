@@ -5,15 +5,9 @@ import { Observable } from 'rxjs';
 const AUTH_API = 'https://serene-brook-26274.herokuapp.com/api/auth/';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
-export class HomePageService {
-  constructor() {}
+export class GrupoServiciosService {
 
-  getGruposServicios() {
-
-
-  }
-
-
+  constructor() { }
 }
