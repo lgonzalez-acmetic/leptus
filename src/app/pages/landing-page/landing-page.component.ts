@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenStorageService } from 'src/app/_services/token-storage.service';
 import { LandingPageService } from './landing-page.service';
+import { GrupoServicio } from '../../models/grupoServicio.model';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,8 +10,9 @@ import { LandingPageService } from './landing-page.service';
 })
 export class LandingPageComponent implements OnInit {
 
+  GrupoServicio?: any;
+
   constructor(private token:TokenStorageService,
-    private router: Router,
     private service: LandingPageService,
 
     ) { }
@@ -20,7 +21,15 @@ export class LandingPageComponent implements OnInit {
     this.getServicesList();
   }
 
-  getServicesList(){
-    this.service.getGruposServicios();
+  getServicesList(): void {
+    this.service.getAll()
+      .subscribe(
+        data => {
+          this.GrupoServicio = data;
+          console.log(this.GrupoServicio);
+        },
+        error => {
+          console.log(error);
+        });
   }
 }

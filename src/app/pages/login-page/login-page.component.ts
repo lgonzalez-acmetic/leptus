@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.authService.getUsers();
+    // this.authService.getUsers();
     if (this.tokenStorage.getToken()) {
       // this.isLoggedIn = true;
         this.router.navigateByUrl('/home');

@@ -19,7 +19,7 @@ export class HomePageComponent  implements OnInit {
     ) { }
 
     ngOnInit(): void {
-      this.currentUser = this.token.getUser();
+      // this.currentUser = this.token.getUser();
     }
 
   salir(){
