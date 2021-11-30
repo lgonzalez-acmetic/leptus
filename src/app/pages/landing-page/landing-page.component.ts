@@ -22,7 +22,5 @@ export class LandingPageComponent implements OnInit {
 
   getServicesList(){
     this.service.getGruposServicios();
-    console.log('ok');
-
   }
 }
