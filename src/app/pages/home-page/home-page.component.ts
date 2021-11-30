@@ -21,4 +21,8 @@ export class HomePageComponent implements OnInit {
     this.token.signOut();
     this.router.navigateByUrl('/login');
   }
+
+  getServicesList(){
+
+  }
 }

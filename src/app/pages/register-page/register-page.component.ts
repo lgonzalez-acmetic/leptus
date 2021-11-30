@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export class RegisterPageComponent implements OnInit {
 
   form: any = {
-    username: null,
+    nombres: null,
     email: null,
     password: null
   };
@@ -24,7 +24,7 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { name, email, password } = this.form;
+    const { nombres, email, password } = this.form;
     document.body.style.cursor = 'progress';
     Swal.fire({
       title: 'Por favor Espere !',
@@ -37,7 +37,7 @@ export class RegisterPageComponent implements OnInit {
     });
     console.log(this.form);
 
-    this.authService.register(name, email, password).subscribe(
+    this.authService.register(nombres, email, password).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
