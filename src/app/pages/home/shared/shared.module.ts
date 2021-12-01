@@ -6,7 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { PricesComponent } from './prices/prices.component';
 import { TeamComponent } from './team/team.component';
 import { ContentComponent } from './content/content.component';
-
+import { ObjToArrayPipe } from 'src/app/objToArray.pipe';
 
 
 @NgModule({
@@ -16,10 +16,19 @@ import { ContentComponent } from './content/content.component';
     FooterComponent,
     PricesComponent,
     TeamComponent,
+    ContentComponent,
+    ObjToArrayPipe
+  ],
+  exports: [
+    NavbarComponent,
+    HeaderComponent,
+    FooterComponent,
+    PricesComponent,
+    TeamComponent,
     ContentComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class SharedModule { }
