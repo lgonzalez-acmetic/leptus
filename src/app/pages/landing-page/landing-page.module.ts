@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LandingPageComponent } from './landing-page.component';
+import { ObjToArrayPipe } from 'src/app/objToArray.pipe';
 
 
 @NgModule({
   declarations: [
-    LandingPageComponent
+    LandingPageComponent,
+    ObjToArrayPipe
   ],
   imports: [
     CommonModule,

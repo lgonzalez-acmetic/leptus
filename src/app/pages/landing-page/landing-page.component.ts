@@ -26,7 +26,7 @@ export class LandingPageComponent implements OnInit {
     this.service.getAll()
       .subscribe(
         data => {
-          this.GrupoServicio = Object.values(data);
+          this.GrupoServicio =  data;
           console.log(this.GrupoServicio);
           // Object.values(
         },
