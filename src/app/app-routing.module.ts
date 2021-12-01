@@ -12,7 +12,7 @@ const routes: Routes = [
     // canActivate: [AuthGuard]
   },
   {
-    path: 'iniciar-sesion',
+    path: 'login',
     loadChildren: () =>
       import('./pages/login-page/login-page.module').then(
         (m) => m.LoginPageModule
