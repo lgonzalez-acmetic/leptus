@@ -24,7 +24,7 @@ export class HomePageComponent  implements OnInit {
 
   salir(){
     this.token.signOut();
-    this.router.navigateByUrl('/login');
+    this.router.navigateByUrl('/');
   }
 
 }

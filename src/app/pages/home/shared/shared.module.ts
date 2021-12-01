@@ -7,7 +7,7 @@ import { PricesComponent } from './prices/prices.component';
 import { TeamComponent } from './team/team.component';
 import { ContentComponent } from './content/content.component';
 import { ApplicationPipesModule } from 'src/app/pipes/application-pipes.module';
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { ApplicationPipesModule } from 'src/app/pipes/application-pipes.module';
   ],
   imports: [
     CommonModule,
-    ApplicationPipesModule
+    ApplicationPipesModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
