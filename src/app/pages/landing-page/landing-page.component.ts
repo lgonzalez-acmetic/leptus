@@ -22,11 +22,13 @@ export class LandingPageComponent implements OnInit {
   }
 
   getServicesList(): void {
+    // this.service.getAll().subscribe(res=>this.GrupoServicio=res);
     this.service.getAll()
       .subscribe(
         data => {
-          this.GrupoServicio = data;
+          this.GrupoServicio = Object.values(data);
           console.log(this.GrupoServicio);
+          // Object.values(
         },
         error => {
           console.log(error);
