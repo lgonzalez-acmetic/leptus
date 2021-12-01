@@ -6,11 +6,19 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/landing-page/landing-page.module').then(
-        (m) => m.LandingPageModule
+      import('./pages/home/home.module').then(
+        (m) => m.HomeModule
       ),
     // canActivate: [AuthGuard]
   },
+  // {
+  //   path: '',
+  //   loadChildren: () =>
+  //     import('./pages/landing-page/landing-page.module').then(
+  //       (m) => m.LandingPageModule
+  //     ),
+  //   // canActivate: [AuthGuard]
+  // },
   {
     path: 'login',
     loadChildren: () =>
