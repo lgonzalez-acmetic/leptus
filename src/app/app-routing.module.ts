@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('./pages/login-page/login-page.module').then(
+      import('./pages/auth/login-page/login-page.module').then(
         (m) => m.LoginPageModule
       ),
     // canActivate: [AuthGuard]
@@ -30,7 +30,7 @@ const routes: Routes = [
   {
     path: 'registrar',
     loadChildren: () =>
-      import('./pages/register-page/register-page.module').then(
+      import('./pages/auth/register-page/register-page.module').then(
         (m) => m.RegisterPageModule
       ),
     // canActivate: [AuthGuard]

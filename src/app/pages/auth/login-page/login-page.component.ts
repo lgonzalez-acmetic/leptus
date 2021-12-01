@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/_services/auth.service';
-import { TokenStorageService } from '../../_services/token-storage.service';
+import { TokenStorageService } from '../../../_services/token-storage.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
