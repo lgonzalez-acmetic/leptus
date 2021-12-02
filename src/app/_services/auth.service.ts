@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 const AUTH_API = 'https://serene-brook-26274.herokuapp.com/api/auth/';
+const CODE_API = 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -18,7 +19,7 @@ export class AuthService {
 
   login(email: string, password: string): Observable<any> {
 
-    return this.http.post(AUTH_API + 'login', {
+    return this.http.post(AUTH_API + 'login/' + CODE_API, {
       email,
       password
     }, httpOptions);
@@ -29,7 +30,7 @@ export class AuthService {
   }
 
   register(nombres: string, email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'register', {
+    return this.http.post(AUTH_API + 'register/' + CODE_API, {
       nombres,
       email,
       password
@@ -40,7 +41,7 @@ export class AuthService {
 
   getUsers() {
     // this.http.get("https://reqres.in/api/users?page=2").subscribe(data => {
-    this.http.get("https://serene-brook-26274.herokuapp.com/api/usuarios/" + "lista").subscribe(data => {
+    this.http.get("https://serene-brook-26274.herokuapp.com/api/usuarios/" + "lista/" + CODE_API).subscribe(data => {
       console.log(data);
     });
   }
