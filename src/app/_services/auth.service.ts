@@ -42,7 +42,7 @@ export class AuthService {
 
   getUsers() {
     // this.http.get("https://reqres.in/api/users?page=2").subscribe(data => {
-    this.http.get("https://serene-brook-26274.herokuapp.com/api/usuarios/" + "lista/" + CODE_API).subscribe(data => {
+    this.http.get(AppSettings.API_ENDPOINT+"/usuarios/" + "lista/" + CODE_API).subscribe(data => {
       console.log(data);
     });
   }
