@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GrupoServicio } from 'src/app/models/grupoServicio.model';
+import { AppSettings } from 'src/app/config/constants';
 
-const AUTH_API = 'https://serene-brook-26274.herokuapp.com/api/serviciosSoftware/';
-// const AUTH_API = 'http://localhost:8000/api/serviciosSoftware/';
-const CODE_API = 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9';
+const AUTH_API = AppSettings.API_ENDPOINT + '/serviciosSoftware/';
+const CODE_API = AppSettings.CODE_API;
 
 @Injectable({
   providedIn: 'root'

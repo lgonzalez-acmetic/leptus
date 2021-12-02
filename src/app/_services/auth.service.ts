@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AppSettings } from 'src/app/config/constants';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'https://serene-brook-26274.herokuapp.com/api/auth/';
-const CODE_API = 'iT3BnOENtV30pxRDadZ99e43wbDL4NA9';
+const AUTH_API = AppSettings.API_ENDPOINT + '/auth/';
+const CODE_API = AppSettings.CODE_API;
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
