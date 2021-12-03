@@ -11,20 +11,33 @@ import { HomePageService } from './home-page.service';
 export class HomePageComponent  implements OnInit {
 
   currentUser: any;
+  ServiciosSoftware?: any;
 
   constructor(private token:TokenStorageService,
     private router: Router,
     private service: HomePageService,
-
     ) { }
 
     ngOnInit(): void {
       this.currentUser = this.token.getUser();
+      this.getServicesList();
     }
 
-  salir(){
-    this.token.signOut();
-    this.router.navigateByUrl('/');
-  }
+    getServicesList(): void {
+      this.service.getServiciosSoftware()
+        .subscribe(
+          data => {
+            this.ServiciosSoftware =  data;
+            console.log(this.ServiciosSoftware);
+          },
+          error => {
+            console.log(error);
+          });
+    }
+
+    salir(){
+      this.token.signOut();
+      this.router.navigateByUrl('/');
+    }
 
 }
